@@ -12,19 +12,21 @@ create table member(
 
 -- Member CRUD(create, read, update, delete)
 
-
+-- 멤버테이블에 데이터를 삽입할때.
 insert into member
 (email, name, password, register_date)
 values
-("xxx@yyy", "송럭키", "1234","2015/11/11")      --멤버테이블에 데이터를 삽입할때.
+("xxxx@yyy", "송럭키", "1234","2015/11/11")      
 
 --read
-select * from member;		--멤버 테이블 검색
+select * from member;		
 
---update
+--update  입력한 아이디의 정보를 업데이트한다.
 update member
-	set name = '홍순이',
+	set name = '럭키짱',
 		password = '8888'
---delete
-delete from member;         --모든 데이터 지우기
+	where id = 7;
+--delete 입력한 아이디의 정보를 삭제한다. 
+delete from member
+ where id = 10;
 
