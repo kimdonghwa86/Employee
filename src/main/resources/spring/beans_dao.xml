@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd">
+
+
+<context:property-placeholder location="classpath:database/db.properties"/>
+
+<!-- DataSource -->
+<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">	
+	<property name="driverClassName" value="${className}" />
+	<property name="url" value="${url}"/>
+	<property name="username" value="${user}"/>
+	<property name="password">
+		<value>${password}</value>
+	</property>
+</bean>
+
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource"/>
+	<property name="mapperLocations">
+		<list>
+			<value>com/hybrid/mapper/MemberMapper.xml</value>
+		</list>
+	</property>
+</bean>
+
+<!-- MamberMapper -->
+<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+<constructor-arg ref="sqlSessionFactory"/>
+</bean>
+<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.hybrid.mapper.MemberMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+<!-- cityMapper -->
+<bean class="org.mybatis.spring.mapper.MapperFactoryBean">
+	<property name="mapperInterface" value="com.hybrid.mapper.CityMapper"/>
+	<property name="sqlSessionTemplate" ref="sqlSession"/>
+</bean>
+
+
+</beans>

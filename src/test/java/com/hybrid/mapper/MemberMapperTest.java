@@ -23,6 +23,9 @@ public class MemberMapperTest {
 
    public static void main(String[] args) throws Exception {
       
+	  int i = 10;
+	  float f = 10.5f;
+	   
       String driverClassName ="com.mysql.jdbc.Driver" ;
       String url = "jdbc:mysql://localhost:3306/world";
       String username = "root";
@@ -36,8 +39,7 @@ public class MemberMapperTest {
       dateSource.setUsername(username);
       dateSource.setPassword(password);
       /*
-       * 
-       * sqlSessionFactorybean
+       * sqlSessionFactoryBean
        */
       SqlSessionFactoryBean sqlSessionFactory = new SqlSessionFactoryBean();
       sqlSessionFactory.setDataSource(dateSource);
@@ -46,11 +48,23 @@ public class MemberMapperTest {
             new ClassPathResource("com/hybrid/mapper/MemberMapper.xml");
       Resource[] mapperLocations = {memberMapper};
       sqlSessionFactory.setMapperLocations(mapperLocations);
+      /*
+       * sqlSessionTemplate
+       */
+      SqlSessionTemplate sqlSession = new SqlSessionTemplate(sqlSessionFactory.getObject());
       
-      SqlSessionTemplate sqlSession =
-            new SqlSessionTemplate(sqlSessionFactory.getObject());
-      
-      
+      MemberMapper mapper = sqlSession.getMapper(MemberMapper.class);
+      List<Member> list = mapper.selectAll();
+      //List<Member> list = sqlSession.selectList("com.hybrid.mapper.MemberMapper.selectAll");
+    
+      for(Member m : list) {
+          log.info("id = " +m.getId());
+          log.info("email = " +m.getEmail());
+          log.info("name =" +m.getName());
+          log.info("password =" + m.getPassword());
+          log.info("register_date =" +m.getRegisterDate());
+          
+       }
     printMembers(dateSource.getConnection());
       
       log.info("program exit ..");

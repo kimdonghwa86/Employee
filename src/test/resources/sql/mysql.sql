@@ -2,7 +2,7 @@ drop table member;
 
 create table member(
 	id				int auto_increment,
-	email	 		varchar(255) ,
+	email	 		varchar(255),
 	name 			varchar(255),
 	password		varchar(255),
 	register_date	date,
@@ -30,3 +30,27 @@ update member
 delete from member
  where id = 10;
 
+--
+-- ******City***** 
+--  
+ 
+ --City (select All)
+ select id,
+		name,
+		countrycode,
+		district,
+		population
+   from city
+
+  
+  
+  --selectByCountrycode(String countryCode)
+  select id,
+		name,
+		countrycode,
+		district,
+		population
+   from city
+  where countrycode = 'USA'
+   
+   
