@@ -1,5 +1,6 @@
 drop table member;
 
+--membertable생성
 create table member(
 	id				int auto_increment,
 	email	 		varchar(255),
@@ -11,7 +12,7 @@ create table member(
 );
 
 -- Member CRUD(create, read, update, delete)
-
+--DML
 -- 멤버테이블에 데이터를 삽입할때.
 insert into member
 (email, name, password, register_date)
