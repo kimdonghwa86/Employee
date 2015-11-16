@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+<!-- new 생성 -->
+<bean  class="java.util.Date">
+	<property name="year" value="115"/>
+	<property name="month" value="08"/>
+	<property name="date" value="10"/>
+</bean>
+
+<!-- new 생성 95%사용됨 -->
+<bean class="com.hybrid.model.Member">
+</bean>
+
+<!-- factory method 생성 1%사용됨-->
+<bean id="documentBuilderFactory" class="javax.xml.parsers.DocumentBuilderFactory">
+</bean>
+
+<!-- factoryBean 생성 3% 사용됨-->
+<bean class="com.hybrid.bean.DocumentFactoryBean">
+	<constructor-arg ref="documentBuilderFactory"/>
+	<property name="path" value="com/hybrid/bean/dept.xml"/>
+
+</bean>
+
+
+
+
+</beans>

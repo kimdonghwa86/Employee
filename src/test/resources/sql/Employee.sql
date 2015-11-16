@@ -76,7 +76,28 @@ select * from city;
 --테이블을 지운다.
 delete from city;
  
- 
+
+select * from dept
+select * from emp
+
+select d.deptno  as dept_deptno,
+	   d.name 	 as dept_dname,
+	   d.loc 	 as dept_loc,
+	   d.empno	 as dept_empno,
+	   d.ename	 as dept_ename,
+	   e.job	 as dept_job
+from dept d inner join emp e
+on d.deptno = e.deptno
+
+
+select d.deptno  as dept_deptno,
+	   d.name 	 as dept_dname,
+	   d.loc 	 as dept_loc,
+	   d.empno	 as dept_empno,
+	   d.ename	 as dept_ename,
+	   e.job	 as dept_job,
+from dept d inner join emp e
+on d.deptno = e.deptno
  
  
  
