@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd">
 
 <!--Oracle DataSource  -->
 <bean id="oracleDataSource" class="org.apache.commons.dbcp.BasicDataSource">
@@ -34,5 +36,20 @@
 	<property name="sqlSessionTemplate" ref="oracleSqlSession"/>
 	<property name="mapperInterface" value="com.hybrid.mapper.EmpMapper"/>
 </bean>
+
+<bean id="oracleDeptdao" class="com.hybrid.dao.DeptDao">
+	<property name="deptMapper" ref="oracleDeptMapper"/>
+</bean>
+
+<aop:aspectj-autoproxy/>
+
+<bean class="com.hybrid.aspect.LogDaoAspect"/>
+<bean class="com.hybrid.aspect.TransactionAspect"/>
+<bean class="com.hybrid.service.DeptRegisterService">
+	<property name="deptDao" ref="oracleDeptdao"/>
+	<property name="dataSource" ref="oracleDataSource"/>
+</bean>
+
+
 
 </beans>

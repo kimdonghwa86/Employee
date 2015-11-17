@@ -19,6 +19,7 @@
         	   e.hiredate	as emp_hiredate,
         	   e.sal		as emp_sal,
         	   e.deptno 	as emp_deptno
+        	   
          
           from dept	d inner join emp e 
           	on d.deptno = e.deptno 
@@ -84,5 +85,20 @@
 		<include refid="deptFromWithEmp"/>
 		where d.deptno = #{deptno}
     </select>
-    
+   
+    <insert id="insert" parameterType="com.hybrid.model.Dept">
+       	insert into dept
+       	(
+       		deptno,
+       		dname,
+       		loc
+       	)
+       	values
+       	(
+       		#{deptno},
+       		#{dname},
+       		#{loc}
+       	)
+       	
+    </insert>
 </mapper>

@@ -1,4 +1,4 @@
-select * from dip;
+select * from dept;
 
 --membertable 생성
 --DDL(Data Defindin
