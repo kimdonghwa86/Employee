@@ -53,5 +53,22 @@ delete from member
 		population
    from city
   where countrycode = 'USA'
+  
+  
+  --시티테이블 검색 4079개
+ select * from city; 
+ 
+ 
+ --컨트리코드기준으로 정렬검색 한다
+ select id,  
+ 		name,
+ 		countrycode,
+ 		district,
+ 		population
+   from city
+  order by countrycode asc, name asc
+  limit 40, 10        --20번째부터 5개를 가지고 오겠다. start, length. from 0  
+   
+   
    
    

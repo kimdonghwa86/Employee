@@ -12,21 +12,20 @@ import org.springframework.context.support.GenericXmlApplicationContext;
 import com.hybrid.model.Dept;
 import com.hybrid.model.Emp;
 
-public class DeptRegisterServiceTest {
+public class DeptUnRegisterServiceTest {
 	
-	static Log log = LogFactory.getLog(DeptRegisterServiceTest.class);
+	static Log log = LogFactory.getLog(DeptUnRegisterServiceTest.class);
 	
 	public static void main(String[] args) {
 		GenericXmlApplicationContext ctx=null;
 		ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
 
-		DeptRegisterService service = ctx.getBean(DeptRegisterService.class);
-		DeptUnRegisterService uservice = ctx.getBean(DeptUnRegisterService.class);
-	
-		Dept dept = ctx.getBean(Dept.class);
+		DeptUnRegisterService service = ctx.getBean(DeptUnRegisterService.class);
 		
-		uservice.unregist(dept);
-		service.regist(dept);
+		Dept dept = new Dept();
+		dept.setDeptno(50);
+		
+		service.unregist(60);
 		
 	}
 

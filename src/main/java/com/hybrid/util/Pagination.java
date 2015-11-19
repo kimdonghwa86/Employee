@@ -140,4 +140,12 @@ public class Pagination {
 		return (lastPage == totalItem) ? true : false;
 		
 	}
+	
+	public int getStart(){
+		return firstItem - 1;
+	}
+	
+	public int getLength(){
+		return lastItem - firstItem + 1;
+	}
 }

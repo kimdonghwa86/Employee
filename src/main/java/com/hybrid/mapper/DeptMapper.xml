@@ -77,15 +77,18 @@
             <association property="dept" resultMap="deptResultMap"/>   
         </collection>
     </resultMap>
+    
+    
     <select id="selectAllWithEmps" resultMap="deptResultMap">
-		<include refid="deptFromWithEmp_outer"/>
-        
+		<include refid="deptFromWithEmp_outer"/>       
     </select>
+    
     <select id="selectByDeptnoWithEmps" resultMap="deptResultMap">
 		<include refid="deptFromWithEmp"/>
 		where d.deptno = #{deptno}
     </select>
    
+    
     <insert id="insert" parameterType="com.hybrid.model.Dept">
        	insert into dept
        	(
@@ -101,4 +104,23 @@
        	)
        	
     </insert>
+    <delete id="delete" parameterType="com.hybrid.model.Dept">
+        delete from dept
+         where deptno = #{deptno}
+        
+    </delete>
+    
+    <select id="selectGreaterThan" resultType="com.hybrid.model.Dept">
+        <include refid="deptFrom"/>
+        where deptno = #{deptno}
+        
+        
+    </select>
+    
+    
+    <delete id="deleteGreaterThan" parameterType="int">
+        delete from dept
+         where deptno >= #{deptno}
+        
+    </delete>
 </mapper>

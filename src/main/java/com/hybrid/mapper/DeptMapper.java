@@ -14,4 +14,9 @@ public interface DeptMapper {
 	
 	int insert(Dept dept);
 	
+	int delete(Dept deptno);
+	
+	List<Dept> selectGreaterThan(int deptno);
+	int deleteGreaterThan(int deptno);
+	
 }

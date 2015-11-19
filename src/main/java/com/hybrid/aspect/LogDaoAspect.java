@@ -15,11 +15,15 @@ public class LogDaoAspect {
 //	static Log log = LogFactory.getLog(LogDaoAspect.class);
 	
 	@Pointcut("execution(public * com.hybrid.dao.*Dao.*(..))")  //표현식의중복을 해제한다.ㅋ
-	public void logcut(){
+	public void dao(){
+		
+	}
+	@Pointcut("execution(public * com.hybrid.service.*Service.*(..))") 
+	public void service(){
 		
 	}
 	
-	@Before("logcut()")
+	@Before("dao() || service()")
 	public void before(JoinPoint jp){
 		Log log = LogFactory.getLog(jp.getTarget().getClass());
 		log.info("###" + jp.getSignature().getName()
@@ -28,7 +32,7 @@ public class LogDaoAspect {
 					   + ")"
 					   +"Start");
 	}
-	@After("logcut()")
+	@After("dao() || service()")
 	public void after(JoinPoint jp){
 		Log log = LogFactory.getLog(jp.getTarget().getClass());
 		log.info("###" + jp.getSignature().getName()

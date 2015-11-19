@@ -101,6 +101,10 @@ from dept d inner join emp e
 on d.deptno = e.deptno
  
  
- 
+ select * 
+ 	from dept d inner join emp e
+ 	on d.deptno = e.deptno
+ 	where d.deptno = 81
+ 			
  
  

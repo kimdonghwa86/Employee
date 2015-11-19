@@ -8,6 +8,19 @@
         
     </select>
     
+    <select id="selectByDeptno" resultType="com.hybrid.model.Emp">
+        select empno,
+        	   ename,
+        	   job,
+        	   mgr,
+        	   hiredate,
+        	   sal,
+        	   comm
+          from emp
+           where deptno = #{deptno}
+    </select>
+    
+    
     <resultMap id="empResultMapWithDept" type="com.hybrid.model.Emp">
         <id		property="empno"	column="emp_empno"/>
         <result property="ename"	column="emp_ename"/>
@@ -58,4 +71,8 @@
         	#{dept.deptno,jdbcType=NUMERIC}
         )   
     </insert>
+    <delete id="delete" parameterType="com.hybrid.model.Emp">
+        delete from emp
+         where empno = #{empno}
+    </delete>
 </mapper>
