@@ -1,4 +1,5 @@
 select * from dept;
+select * from emp;
 
 --membertable 생성
 --DDL(Data Defindin

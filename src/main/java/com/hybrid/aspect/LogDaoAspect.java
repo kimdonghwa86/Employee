@@ -26,7 +26,7 @@ public class LogDaoAspect {
 					   + "("
 					   + Arrays.toString(jp.getArgs())
 					   + ")"
-					   +"*****Start*****");
+					   +"Start");
 	}
 	@After("logcut()")
 	public void after(JoinPoint jp){
@@ -35,6 +35,6 @@ public class LogDaoAspect {
 				   + "("
 				   + Arrays.toString(jp.getArgs())
 				   + ")"
-				   +"*****End*****");
+				   +"End");
 	}
 }

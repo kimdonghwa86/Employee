@@ -34,5 +34,28 @@
     <select id="selectByEmpnoWithDept">
         
     </select>
-    
+    <insert id="insert" parameterType="com.hybrid.model.Emp">
+        insert into emp
+        (
+        	empno,
+        	ename,
+        	job,
+        	mgr,
+        	hiredate,
+        	sal,
+        	comm,
+        	deptno
+        )
+        values
+        (
+        	#{empno},
+        	#{ename,jdbcType=VARCHAR},
+        	#{job,jdbcType=VARCHAR},
+        	#{mgr,jdbcType=NUMERIC},
+        	#{hiredate,jdbcType=TIMESTAMP},
+        	#{sal,jdbcType=NUMERIC},
+        	#{comm,jdbcType=NUMERIC},
+        	#{dept.deptno,jdbcType=NUMERIC}
+        )   
+    </insert>
 </mapper>
