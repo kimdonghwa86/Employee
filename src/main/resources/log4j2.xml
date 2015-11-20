@@ -18,12 +18,15 @@
 	</Appenders>
 
 	<!-- Logger 설정 -->
+	<!-- TRACE, DEBUG, INFO, WARN, ERROR, FAFAL 정하는 것에 이하레벨은 필터링되어 보이지않는다 . 보통 인포로설정한다. -->
 	<Loggers>
 		<Root level="INFO">
 			<AppenderRef ref="console" />
 			<AppenderRef ref="MyFile" />
 		</Root>
-
+		<Logger name="com.hybrid.mapper" level="DEBUG">
+		    <AppenderRef ref="console" />
+		</Logger>
 	</Loggers>
 
 </Configuration>

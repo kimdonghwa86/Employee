@@ -13,6 +13,16 @@
 
 <bean id="mysqlSqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 	<property name="dataSource" ref="mysqlDataSource"/>
+	<property name="databaseIdProvider">
+			<bean class="org.apache.ibatis.mapping.VendorDatabaseIdProvider">
+				<property name="properties">
+					<props>
+						<prop key="MySQL">MySQL</prop>
+						<prop key="Oracle">oracle</prop>
+					</props>
+				</property>
+			</bean>
+	</property>
 </bean>
 
 

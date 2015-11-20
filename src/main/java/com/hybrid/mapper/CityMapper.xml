@@ -15,7 +15,11 @@
  		   from city	    
 	</select>
 	
-	<select id="selectPage" parameterType="com.hybrid.util.Pagination" resultType="com.hybrid.model.City">
+	<!-- 1.mysql 둘중하나만 로딩 '데이타베이스아이디로 구분해준다' -->
+	<select id="selectPage" 
+	    	parameterType="com.hybrid.util.Pagination" 
+	    	resultType="com.hybrid.model.City"
+	    	databaseId="mysql">
 	     select id,
 				name,
 				countrycode,
@@ -25,6 +29,24 @@
  		  order by countrycode asc, name asc
  		  limit #{start},#{length}
 	</select>
+	
+	<!-- 2.oracle 둘중하나만 로딩 '데이타베이스아이디로 구분해준다' -->
+	<select id="selectPage" 
+	    	parameterType="com.hybrid.util.Pagination" 
+	    	resultType="com.hybrid.model.City"
+	    	databaseId="oracle">
+			     select outer.*
+		   from (select rownum r, inner.* 
+		 			from ( select * 
+		 					from city
+		 					order by countrycode asc, name asc
+		 				 ) inner
+		 		 ) outer
+		 where outer.r &gt;= #{firstItem}
+		   and outer.r &lt;= #{lastItem}
+	</select>
+	
+	
 	
 	<select id="selectByCountryCode" parameterType="string" resultType="com.hybrid.model.City">
 	   	 select id,
@@ -42,7 +64,7 @@
 			countrycode,
 			district,
 			population
-)
+		)
 		values
 		(
 			#{id},
@@ -50,6 +72,9 @@
 			#{countryCode},
 			#{district},
 			#{population}	
-)
+		)
 	</insert>
+	<delete id="deleteAll">
+	    delete from city
+	</delete>
 </mapper>

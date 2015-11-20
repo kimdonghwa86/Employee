@@ -13,6 +13,7 @@ public class PaginationTest {
 	public static void main(String[] args) {
 		GenericXmlApplicationContext ctx = null;
 		ctx = new GenericXmlApplicationContext("spring/beans_mysql.xml");
+		ctx = new GenericXmlApplicationContext("spring/beans_oracle.xml");
 		
 		CityMapper cityMapper = ctx.getBean(CityMapper.class);
 		

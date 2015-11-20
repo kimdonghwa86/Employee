@@ -9,6 +9,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.TransactionDefinition;
 import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.support.DefaultTransactionDefinition;
 
 import com.hybrid.dao.DeptDao;
@@ -41,7 +42,7 @@ public class DeptUnRegisterService {
 		this.dataSource = dataSource;
 	}	
 	
-	
+	@Transactional
 	public void unregist(Dept dept) {
 		List<Emp> emps = empDao.selectByDeptno(dept.getDeptno());
 		
@@ -50,7 +51,7 @@ public class DeptUnRegisterService {
 		}
 		deptDao.delete(dept);						
 	}
-	
+	@Transactional
 	public void unregist(int deptno){
 		List<Dept> depts = deptDao.selectGreaterThan(deptno);
 		

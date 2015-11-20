@@ -26,6 +26,7 @@ public class DeptRegisterServiceTest {
 		Dept dept = ctx.getBean(Dept.class);
 		
 		uservice.unregist(dept);
+		
 		service.regist(dept);
 		
 	}

@@ -54,6 +54,8 @@ delete fromme mber;
 )
  --테이블생성확인
 select * from city; 
+
+select count(*) from city 
  
 --테이블에 데이터를 삽입한다.
 insert into city
@@ -71,12 +73,8 @@ values
 	'Asia',
 	99998	
 )
- 
---테이블생성확인
-select * from city; 
---테이블을 지운다.
-delete from city;
- 
+
+
 
 select * from dept
 select * from emp
@@ -100,11 +98,48 @@ select d.deptno  as dept_deptno,
 from dept d inner join emp e
 on d.deptno = e.deptno
  
+--
+select * from dept
  
  select * 
  	from dept d inner join emp e
  	on d.deptno = e.deptno
- 	where d.deptno = 81
- 			
+ 	where d.deptno = 82
+ 
+ 	
+ --테이블중에 countrycode 칼럼을 검색한다.
+select * from city
+	order by countrycode asc, name asc 
+
+--rownum 의 컬럼을 보여주며 순번을 보여준다. rownum
+select rownum, c.*
+	from (select * from city order by name asc) c
+--	where rownum >= 11
+--	and rownum <=20
+order by countrycode asc, name asc 	
+	
+
+--테이블 전체를 검색한다
+select * from city
+	
+
+--city 테이블을 지운다.
+delete from city;
+
+--시티테이블 컬럼갯수확인
+select count(*) from city  	
+ 	
+--중요하다!! 진짜 이거 복잡한쿼리 페이지검색  로우넘을 기반으로 순서지키면서 출력할수있는 방법 	
+ select outer.*
+   from (select rownum r, inner.* 
+ 			from ( select * 
+ 					from city
+ 					order by countrycode asc, name asc
+ 				 ) inner
+ 		 ) outer
+ where outer.r >= 21
+   and outer.r <= 30
+ 	
+ 	
  
  
