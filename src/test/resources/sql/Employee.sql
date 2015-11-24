@@ -23,15 +23,15 @@ create sequence member_id_seq        --시퀀스를 만든다.
 insert into member
 (id, email, name, password, register_date)
 values
-(member_id_seq.nextval, 'luckySong@yyy', '러키짜앙', '1234','2015/11/11')      
+(member_id_seq.nextval, luckySong@yyy, 러키짜앙, 1234,2015/11/11)      
 
 --read (테이블확인)
 select * from member;		
 
 --update  입력한 아이디의 정보를 업데이트한다.
 update member
-	set name = '송럭키',
-		password = '8888'
+	set name = 송럭키,
+		password = 8888
 	where id = 1;
 --delete 입력한 아이디의 정보를 삭제한다. 
 delete fromme mber;
@@ -68,9 +68,9 @@ insert into city
 values
 (
 	1,
-	'seoul',
-	'KOR',
-	'Asia',
+	seoul,
+	KOR,
+	Asia,
 	99998	
 )
 
@@ -139,7 +139,34 @@ select count(*) from city
  		 ) outer
  where outer.r >= 21
    and outer.r <= 30
- 	
- 	
  
+   
+   
+   
+ /*
+  * country
+  */	
+  drop table country
  
+  create table country (
+  code				 char(3),
+  name 				 char(52),
+  continent			 char(50),
+  region			 char(26),
+  surfacearea		 numeric(10,2),
+  indepyear	  	     numeric(6),
+  population 		 numeric(11),
+  lifeexpectancy 	 numeric(3,1),
+  gnp				 numeric(10,2),
+  gnpold			 numeric(10,2),
+  localname 		 char(45),
+  governmentform	 char(45),
+  headofstate 		 char(60),
+  capital			 numeric(11),
+  code2 			 char(2),
+ constraint pk_country_code primary key(code)
+) 
+  
+  
+  
+

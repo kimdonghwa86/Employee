@@ -16,13 +16,19 @@ public class CityTransfer {
 	public static void main(String[] args) {
 	
 		GenericXmlApplicationContext ctx = null;
-		ctx = new GenericXmlApplicationContext("spring/beans_mysql.xml","spring/beans_oracle.xml");
-
+		ctx = new GenericXmlApplicationContext("spring/beans_mysql.xml",
+											   "spring/beans_oracle.xml");
+		
+		/*
+		 * Mysql==> Oracle
+		 */
+		
+		
 		CityMapper mysqlCityMapper = (CityMapper) ctx.getBean("mysqlCityMapper");
 		CityMapper oracleCityMapper = (CityMapper) ctx.getBean("oracleCityMapper");
 		
-		oracleCityMapper.deleteAll();
-		
+		int deleteCount = oracleCityMapper.deleteAll(); 
+		log.info("oracle city Delete Count = " + deleteCount);
 		List<City> list = mysqlCityMapper.selectAll();
 //		Pagination paging = new Pagination();
 //		paging.setTotalItem(4079);
@@ -43,6 +49,10 @@ public class CityTransfer {
 				
 			}
 		});
+		
+		int cityCount = oracleCityMapper.selectCount();
+		log.info("oracle city total count = " + cityCount);
 		ctx.close();
+		List<String> xx;
 	}
 }

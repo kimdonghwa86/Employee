@@ -2,4 +2,4 @@
 .project        
 .settings/             
 target/
-app.log
+app.logsrc/main/webapp/WEB-INF/node_modules
