@@ -1,45 +1,39 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt"  uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>	
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>    
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" ng>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
 <title>index.jsp</title>
 
-<c:url var="bootstrap" value="/bootstrap/dist/css/bootstrap.css"/>
-<c:url var="jquery" value="/jquery/dist/jquery.js"/>
-<c:url var="angular" value="/angular/angular.js"/>
-
-<link rel="stylesheet" href="${bootstrap}"/>
-<script type="text/javascript" src="${jquery}"></script>
-<script type="text/javascript" src="${angular}"></script>
+<%@ include file="/WEB-INF/view/common.jspf" %>
 
 <style type="text/css">
-	
-	.title_animation {
-			animation : blink 2s infinite;
-			}
-			
-			@keyframes blink{
-				from  {
-					background-color : black;
-					opacity : 0.0;
-				}
-				to {			
-					background-color : pink;
-					opacity : 1.0;
-				}
-			}
 
+	.title_animation {
+		animation : blink 2s infinite;
+	}
+	
+	@keyframes blink {
+		from {
+			background-color : black;
+			opacity : 0.0;
+		}
+		to {
+			background-color : red;
+			opacity : 1.0;
+		}
+	}
+	
 </style>
+
 <script type="text/javascript">
-$(document).ready(function(){
-	$('li > a').click(function(){
+
+	$('li > a').click(function() {
 		
 		$('ul > li').removeClass('active');
 		
@@ -47,8 +41,10 @@ $(document).ready(function(){
 		$('#result').text(str);
 		
 		$(this).parent().addClass('active');
+		
 	});
 });
+
 </script>
 </head>
 <body>
@@ -69,5 +65,7 @@ $(document).ready(function(){
 	<li><a href="#">Next</a></li>
 </ul>
 <div id="result"></div>
+
+
 </body>
 </html>
