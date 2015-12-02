@@ -13,7 +13,7 @@ public class Pagination {
 	private int totalPage;
 	private int firstItem;
 	private int lastItem;
-	private int firsPage;
+	private int firstPage;
 	private int lastPage;
 	/*
 	 * read-write
@@ -70,12 +70,12 @@ public class Pagination {
 		//(5 - 1 ) / 10*10 + 1 = 1
 		//(16 - 1) / 10*10 + 1 = 11
 		//(408 - 1) / 10*10 + 1 = 401
-		firsPage = (pageNo - 1) / pagesPerGroup * pagesPerGroup + 1 ;	
+		firstPage = (pageNo - 1) / pagesPerGroup * pagesPerGroup + 1 ;	
 		
 		/*
 		 * lastPage
 		 */
-		lastPage = firsPage + (pagesPerGroup - 1);
+		lastPage = firstPage + (pagesPerGroup - 1);
 		if(lastPage > totalPage)
 		   lastPage = totalPage;
 		
@@ -109,8 +109,8 @@ public class Pagination {
 		return lastItem;
 	}
 
-	public int getFirsPage() {
-		return firsPage;
+	public int getFirstPage() {
+		return firstPage;
 	}
 
 	public int getLastPage() {
@@ -127,11 +127,11 @@ public class Pagination {
 		return pagesPerGroup;
 	}
 	public void setPagesPerGroup(int pagesPerGroup) {
-		pagesPerGroup = pagesPerGroup;
+		this.pagesPerGroup = pagesPerGroup;
 	}
 	
 	public boolean isFirstGroup(){
-		return (firsPage == 1) ? true : false;
+		return (firstPage == 1) ? true : false;
 		
 		
 	}

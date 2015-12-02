@@ -52,7 +52,7 @@ public class PaginationTest {
 			else
 				System.out.print("    ");
 			
-			for(int q = paging.getFirsPage(); q <= paging.getLastPage(); q++){
+			for(int q = paging.getFirstPage(); q <= paging.getLastPage(); q++){
 				System.out.printf("[%03d] ", q);
 			}
 			
@@ -77,7 +77,7 @@ public class PaginationTest {
 					+ ", firstItem = " + paging.getFirstItem()
 					+ ", lastItem = " + paging.getLastItem()
 					+ ", pageNo = " + paging.getPageNo()
-					+ ", firstPage = " + paging.getFirsPage()
+					+ ", firstPage = " + paging.getFirstPage()
 					+ ", lastPage = " + paging.getLastPage()
 					+ ", lastGoup = " + paging.isLastGroup();
 		System.out.println(line);
