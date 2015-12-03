@@ -19,6 +19,7 @@ import com.hybrid.model.CityList;
 import com.hybrid.model.CityPage;
 import com.hybrid.service.CityListService;
 import com.hybrid.service.CityPageService;
+import com.hybrid.service.CityRegisterService;
 import com.hybrid.util.Pagination;
 
 @Controller
@@ -31,6 +32,9 @@ public class CityController {
 	
 	@Autowired
 	CityPageService cityPageService;
+	
+	@Autowired
+	CityRegisterService cityRegisterService;
 	
 	/*
 	 * main.html
@@ -136,10 +140,19 @@ public class CityController {
 	 */	
 	@RequestMapping(value={"","/"}, method=RequestMethod.POST)
 	@ResponseBody
-		public CityCommand postCityAppend(@RequestBody CityCommand city){
-			log.info("postCityAppend()....city id = " + city.getId());
-		
-		return city;
+		public CityCommand postCityAppend(@RequestBody CityCommand command){
+			log.info("postCityAppend()....city id = " + command.getId());
+			
+			command.validate();
+			if(!command.isValid()){
+				//throw
+			}
+			
+			int id = cityRegisterService.regist(command.getCity());
+			log.info("id = " + id);
+			command.setId(id);
+			
+			return command;
 	}
 	
 	/*

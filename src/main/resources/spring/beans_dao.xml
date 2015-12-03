@@ -11,7 +11,7 @@
 
 <!-- LogAspect -->
 <aop:aspectj-autoproxy/>
-<bean class="com.hybrid.aspect.LogDaoAspect"/>
+<bean class="com.hybrid.aspect.LogAspect"/>
 
 <!-- Oracle / MySQL -->
 <context:property-placeholder location="classpath:database/db.properties"/>

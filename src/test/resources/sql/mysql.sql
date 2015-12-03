@@ -45,15 +45,32 @@ delete from member
 
   
   
-  --selectByCountrycode(String countryCode)
+  -----------------------------selectByCountrycode(String countryCode)
   select id,
 		name,
 		countrycode,
 		district,
 		population
    from city
-  where countrycode = 'USA'
+  where countrycode = 'web'
   
+------------------------------ 
+    
+ insert into city
+ (
+ 	name,
+ 	countryCode,
+ 	district,
+ 	population
+ )
+values
+(
+	'java',
+	'web',
+	'programming',
+	1000000	
+)
+-------------------------------- 
   
   --시티테이블 검색 4079개
  select * from city; 
@@ -70,5 +87,8 @@ delete from member
   limit 40, 10        --20번째부터 5개를 가지고 오겠다. start, length. from 0  
    
    
+
+ 
+ 
    
    

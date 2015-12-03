@@ -59,14 +59,12 @@
 </script>
 <c:url var="listController" value="/js/city/listController.js"/>
 <c:url var="detailController" value="/js/city/detailController.js"/>
-
 <c:url var="appendController" value="/js/city/appendController.js"/>
 <c:url var="modifyController" value="/js/city/modifyController.js"/>
 <c:url var="deleteController" value="/js/city/deleteController.js"/>
 
 <script type="text/javascript" src="${listController}"></script>
 <script type="text/javascript" src="${detailController}"></script>
-
 <script type="text/javascript" src="${appendController}"></script>
 <script type="text/javascript" src="${modifyController}"></script>
 <script type="text/javascript" src="${deleteController}"></script>
