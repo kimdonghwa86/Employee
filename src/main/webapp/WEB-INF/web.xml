@@ -10,6 +10,26 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
  
+
+  <!-- SiteMesh Filter-->
+  <filter>
+    <filter-name>sitemesh</filter-name>
+    <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
+    <init-param>
+        <param-name>configfile</param-name>
+        <param-value>/WEB-INF/sitemesh3.xml</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>sitemesh</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+
+
+  
+  
  <!-- 1.EncodingFilter -->
   <filter>
       <filter-name>encodingFilter</filter-name>

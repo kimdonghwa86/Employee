@@ -11,6 +11,8 @@
 
 <context:component-scan base-package="com.hybrid.controller"/>
 
+
+
 <mvc:annotation-driven/>
 <mvc:view-resolvers>
 	<mvc:jsp prefix="/WEB-INF/view/" suffix=".jsp"/>

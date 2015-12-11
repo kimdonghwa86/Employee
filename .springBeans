@@ -10,8 +10,10 @@
 		<config>src/main/resources/spring/beans_dao.xml</config>
 		<config>src/test/resources/spring/beans_mysql.xml</config>
 		<config>src/test/java/com/hybrid/bean/beans.xml</config>
+		<config>src/main/webapp/WEB-INF/js/city/beans_service.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/resources/spring/beans_mvc.xml</config>
 	</autoconfigs>
 	<configSets>
 	</configSets>
