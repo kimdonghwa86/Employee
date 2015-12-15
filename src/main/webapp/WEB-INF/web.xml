@@ -69,7 +69,7 @@
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
 		    classpath:spring/beans_dao.xml
-		    classPath:spring/beans_service.xml
+		    classpath:spring/beans_service.xml
 		</param-value>
 	</context-param>
 
