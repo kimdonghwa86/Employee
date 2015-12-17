@@ -13,7 +13,7 @@
 
 <!-- URL Resolve -->
 <c:url var="URL_GET_LIST" 					value="/city/"/>
-<c:url var="URL_GET_PAGE_BASE"  			value="/city/page/"/>	<!-- /city/page/{gageName} -->
+<c:url var="URL_GET_PAGE_BASE"  			value="/city/page/"/>	<!-- /city/page/{pageNo} -->
 <c:url var="URL_GET_ITEM_BASE"  			value="/city/"/>		<!-- /city/{id} -->
 
 <c:url var="URL_POST_LIST_APPEND" 			value="/city/"/>
@@ -43,7 +43,8 @@
 	var deps = ['ngRoute',
 	            'ngAnimate',
 	            'ngTouch',
-	            'angular-loading-bar'            
+	            'angular-loading-bar',
+	            'ui.bootstrap'
 	];
 	
 	var app = angular.module("employeeApp", deps );
@@ -82,6 +83,7 @@
 
 </head>
 <body data-ng-controller="mainController" class="conteiner">
+  
   <!-- Static navbar -->
       <nav class="navbar navbar-default {{staticOrFixed}}">
         <div class="container-fluid">

@@ -26,11 +26,17 @@
 
 <mvc:resources location="/WEB-INF/node_modules/angular/" mapping="/angular/**"/>
 <mvc:resources location="/WEB-INF/node_modules/angular-route/" mapping="/angular-route/**"/>
+<mvc:resources location="/WEB-INF/node_modules/angular-animate/" mapping="/angular-animate/**"/>
 <mvc:resources location="/WEB-INF/node_modules/angular-touch/" mapping="/angular-touch/**"/>
 <mvc:resources location="/WEB-INF/node_modules/angular-loading-bar/" mapping="/angular-loading-bar/**"/>
-<mvc:resources location="/WEB-INF/node_modules/angular-animate/" mapping="/angular-animate/**"/>
+<mvc:resources location="/WEB-INF/node_modules/angular-ui-bootstrap/" mapping="/angular-ui-bootstrap/**"/>
+
+<mvc:resources location="/WEB-INF/node_modules/ngmap/" mapping="/ngmap/**"/>
+
 
 <mvc:resources location="/WEB-INF/node_modules/bootstrap/" mapping="/bootstrap/**"/>
 <mvc:resources location="/WEB-INF/node_modules/jquery/" mapping="/jquery/**"/>
 
+<mvc:resources location="/WEB-INF/node_modules/font-awesome/" mapping="/font-awesome/**"/>
+<mvc:resources location="/WEB-INF/node_modules/metismenu/" mapping="/metismenu/**"/>
 </beans>
