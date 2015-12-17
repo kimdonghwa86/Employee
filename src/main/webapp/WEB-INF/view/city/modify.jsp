@@ -12,7 +12,7 @@
 <body class="container">
 
 <a class="btn btn-primary" href="#/list">list...</a>
-
+<pre>{{cityForm}}</pre>
 </body>
 </html>
 

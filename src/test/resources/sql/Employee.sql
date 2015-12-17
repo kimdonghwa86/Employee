@@ -56,13 +56,15 @@ delete fromme mber;
 
 
  --테이블생성확인
-select * from city; 
+select * from city
 
 select count(*) from city 
 
 drop sequence city_id_generator;
 
-create sequence city_id_generator start with 4090 
+--create sequence city_id_generator start with 4090
+
+create sequence city_id_generator 
 
 select city_id_generator.nextVal from dual;
 --테이블에 데이터를 삽입한다.
