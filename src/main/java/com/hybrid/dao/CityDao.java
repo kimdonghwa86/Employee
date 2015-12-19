@@ -22,6 +22,12 @@ public class CityDao {
 	public List<City> selectPage(Pagination paging) {
 		return cityMapper.selectPage(paging);
 	}
+	
+	public City selectById(int id) {
+		return cityMapper.selectById(id);
+	}
+	
+	
 	public List<City> selectByCountryCode(String countryCode) {
 		return cityMapper.selectByCountryCode(countryCode);
 	}
@@ -31,7 +37,18 @@ public class CityDao {
 		System.out.println("city id=" + city.getId());
 		return city.getId();
 	}
+	
+	public int update(City city) {
+		return cityMapper.update(city);
+	}
+	
+	public int deleteById(int id) {
+		return cityMapper.deleteById(id);
+	}
+	
+	
 	public int deleteAll() {
 		return cityMapper.deleteAll();
 	}
+	
 }

@@ -9,14 +9,13 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
- 
 
-  <!-- SiteMesh Filter-->
+  <!-- SiteMesh Filter -->
   <filter>
     <filter-name>sitemesh</filter-name>
     <filter-class>org.sitemesh.config.ConfigurableSiteMeshFilter</filter-class>
     <init-param>
-        <param-name>configfile</param-name>
+        <param-name>configFile</param-name>
         <param-value>/WEB-INF/sitemesh3.xml</param-value>
     </init-param>
   </filter>
@@ -25,12 +24,8 @@
     <filter-name>sitemesh</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-
-
-
   
-  
- <!-- 1.EncodingFilter -->
+  <!-- 1. EncodingFilter -->
   <filter>
       <filter-name>encodingFilter</filter-name>
       <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
@@ -42,10 +37,10 @@
   
   <filter-mapping>
       <filter-name>encodingFilter</filter-name>
-      <url-pattern>/*</url-pattern>     
+      <url-pattern>/*</url-pattern>
   </filter-mapping>
   
-  <!-- 2.The front controller of this Spring Web application, responsible for handling all application requests -->
+    <!-- 2. The front controller of this Spring Web application, responsible for handling all application requests -->
 	<servlet>
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -63,8 +58,8 @@
 		<servlet-name>springDispatcherServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
- 
-	<!--3. needed for ContextLoaderListener -->
+  
+	<!-- 3. needed for ContextLoaderListener -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>
@@ -77,4 +72,10 @@
 	<listener>
 		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
 	</listener>
+  
+  
+  
+  
+  
+  
 </web-app>

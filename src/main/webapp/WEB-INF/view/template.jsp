@@ -8,27 +8,26 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta charset="UTF-8">
-
 <%@ include file="/WEB-INF/view/common.jspf" %>
-
 <title>template.jsp</title>
 <script type="text/javascript">
 	var deps = ['ngRoute',
 	            'ngAnimate',
 	            'ngTouch',
-	            'angular-loading-bar'            
-	];
+	            'angular-loading-bar'
+	           ];
+
+	var app = angular.module("employeeApp", deps);
 	
-	var app = angular.module("employeeApp",deps );
-	
-	app.controller("mainController", function($scope,$http) {
-		console.log("mainController....");
+	app.controller("mainController", function($scope, $http) {
+		console.log("mainController...");
 		
 		
 	});
+	
 </script>
 </head>
-<body data-ng-controller="mainController" class="conteiner">
+<body data-ng-controller="mainController" class="container">
 
 </body>
 </html>

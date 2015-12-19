@@ -43,8 +43,7 @@
 	var deps = ['ngRoute',
 	            'ngAnimate',
 	            'ngTouch',
-	            'angular-loading-bar',
-	            'ui.bootstrap'
+	            'angular-loading-bar'
 	           ];
 
 	var app = angular.module("employeeApp", deps);
@@ -71,11 +70,11 @@
 	
 </script>
 
-<c:url var="listController" value="/js/city/listController.js"/>
-<c:url var="detailController" value="/js/city/detailController.js"/>
-<c:url var="appendController" value="/js/city/appendController.js"/>
-<c:url var="modifyController" value="/js/city/modifyController.js"/>
-<c:url var="deleteController" value="/js/city/deleteController.js"/>
+<c:url var="listController" value="/js/country/listController.js"/>
+<c:url var="detailController" value="/js/country/detailController.js"/>
+<c:url var="appendController" value="/js/country/appendController.js"/>
+<c:url var="modifyController" value="/js/country/modifyController.js"/>
+<c:url var="deleteController" value="/js/country/deleteController.js"/>
 
 <script type="text/javascript" src="${listController}"></script>
 <script type="text/javascript" src="${detailController}"></script>
@@ -86,7 +85,7 @@
 </head>
 <body data-ng-controller="mainController" class="container">
 
-<h1>{{title}}</h1>
+<h1 style="background-color: red"># Country {{title}}</h1>
 <div data-ng-view>
 
 </div>

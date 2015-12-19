@@ -5,17 +5,16 @@
 app.config(function($routeProvider) {
 	console.log("/delete config...")
 	
-	$routeProvider.when("/delete/:id", {
+	$routeProvider.when("/delete", {
 		templateUrl: "delete.html",
 		controller: "deleteController"
 	});
 	
 });
 
-app.controller('deleteController', function($scope, $http, URL, $routeParams) {
+app.controller('deleteController', function($scope, $http, URL) {
 	console.log("deleteController...");
 	console.log("URL.DELETE_ITEM_DELETE_BASE = " + URL.DELETE_ITEM_DELETE_BASE);
-	console.log("id = " + $routeParams.id);
 	
 	$scope.$parent.title = "Delete City View";
 	
